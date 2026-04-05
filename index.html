@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apprendre la physique</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
+</head>
+
+<body>
+
+<h1>Bienvenue sur mon site de physique</h1>
+
+<h2>📘 Leçon : La chute libre</h2>
+<p>Un objet tombe à cause de la gravité.</p>
+
+<h2>🎮 Simulation</h2>
+
+<script>
+let y = 0;
+let vitesse = 0;
+let gravite = 0.5;
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(220);
+  vitesse += gravite;
+  y += vitesse;
+  ellipse(200, y, 30, 30);
+
+  if (y > height) {
+    y = 0;
+    vitesse = 0;
+  }
+}
+</script>
+
+</body>
+</html>
