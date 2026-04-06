@@ -135,7 +135,14 @@ function verifierReponses() {
   if(document.getElementById("q3").value.toLowerCase().includes("fluide")) {
     r += "Q3 correct !<br>";
   } else { r += "Q3 à revoir.<br>"; }
+<h2>Choisir le fluide :</h2>
 
+<button onclick="changerFluide('air')">Air</button>
+<button onclick="changerFluide('eau')">Eau</button>
+<button onclick="changerFluide('huile')">Huile</button>
+<button onclick="changerFluide('miel')">Miel</button>
+
+<p id="fluideActuel">Fluide : Eau</p>
   document.getElementById("resultat").innerHTML = r;
 }
 </script>
