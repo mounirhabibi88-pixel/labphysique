@@ -97,7 +97,40 @@ function draw() {
   if (y > tubeY + tubeHeight) {
     y = tubeY;
     v = 0;
-    vitesseData = [];
+    vitesseData = [];<h2>Questions :</h2>
+
+<p>1. Que se passe-t-il avec la vitesse de la bille au fil du temps ?</p>
+<input type="text" id="q1" placeholder="Votre réponse ici">
+
+<p>2. Quelle est la vitesse maximale atteinte ?</p>
+<input type="text" id="q2" placeholder="Votre réponse ici">
+
+<p>3. Que représente la force de frottement dans la simulation ?</p>
+<input type="text" id="q3" placeholder="Votre réponse ici">
+
+<button onclick="verifierReponses()">Vérifier mes réponses</button>
+
+<p id="resultat"></p>
+
+<script>
+function verifierReponses() {
+  let r = "";
+  if(document.getElementById("q1").value.toLowerCase().includes("limite") || 
+     document.getElementById("q1").value.toLowerCase().includes("stabilise")) {
+       r += "Q1 correct !<br>";
+  } else { r += "Q1 à revoir.<br>"; }
+
+  if(document.getElementById("q2").value) {
+    r += "Q2 reçue.<br>"; 
+  }
+
+  if(document.getElementById("q3").value.toLowerCase().includes("fluide")) {
+    r += "Q3 correct !<br>";
+  } else { r += "Q3 à revoir.<br>"; }
+
+  document.getElementById("resultat").innerHTML = r;
+}
+</script>
   }
 }
 </script>
