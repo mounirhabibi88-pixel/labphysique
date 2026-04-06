@@ -146,4 +146,52 @@ function verifierReponses() {
   document.getElementById("resultat").innerHTML = r;
 }
 </script>
+<script>
 
+let y = 50;
+let v = 0;
+let g = 0.5;
+let k = 0.05; // fluide initial (eau)
+let vitesseData = [];
+
+function setup() {
+  createCanvas(800, 400);
+}
+
+function draw() {
+  background(240);
+
+  let a = g - k * v * abs(v);
+  v += a;
+  y += v;
+
+  ellipse(100, y, 30, 30);
+}
+
+
+// ✅ 👉 METS LA FONCTION ICI (en dehors de draw et setup)
+function changerFluide(type) {
+
+  if(type === "air") {
+    k = 0.01;
+  }
+  else if(type === "eau") {
+    k = 0.05;
+  }
+  else if(type === "huile") {
+    k = 0.1;
+  }
+  else if(type === "miel") {
+    k = 0.2;
+  }
+
+  // reset simulation
+  y = 50;
+  v = 0;
+  vitesseData = [];
+
+  // afficher fluide
+  document.getElementById("fluideActuel").innerHTML = "Fluide : " + type;
+}
+
+</script>
