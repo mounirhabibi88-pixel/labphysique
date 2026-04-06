@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Chute d'une bille dans un tube avec fluide</title>
+  <title>Chute d'une bille dans un tube avec axes</title>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.min.js"></script>
 </head>
 <body>
@@ -36,7 +36,6 @@ function draw() {
   v += a * dt;
   y += v * dt;
 
-  // stocker vitesse pour le graphique
   vitesseData.push(v);
 
   // ---- Dessiner le tube et le fluide ----
@@ -52,6 +51,19 @@ function draw() {
   line(width/2, 20, width/2, height-20); // axe Y
   line(width/2, height-20, width-20, height-20); // axe X
 
+  // ---- Noms des axes ----
+  noStroke();
+  fill(0);
+  textSize(14);
+  textAlign(CENTER);
+  text("Temps t (frames)", (width/2 + width-20)/2, height-5); // axe X
+  push();
+  translate(width/2 - 40, height/2);
+  rotate(-HALF_PI);
+  text("Vitesse v (px/frame)", 0, 0); // axe Y
+  pop();
+
+  stroke(0);
   // graduations axe Y (vitesse)
   for (let i = 0; i <= 10; i++) {
     let vy = map(i*2, 0, maxV, height-20, 20);
